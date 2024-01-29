@@ -6,13 +6,12 @@ import it.team3.bw.biglietti.entities.enums.Venditori;
 
 import java.util.Date;
 
-public class TotVidimato extends Convalida{
+public class TotVidimato {
     private long idVeicolo;
 
     public TotVidimato(){}
 
     public TotVidimato(int idBiglietto, Date scadenza, Abbonamento abbonamento, Venditori venditore, Distributore distributore, int idBiglietto1, boolean isVidimato, Date dataConvalida, long idVeicolo) {
-        super(idBiglietto, scadenza, abbonamento, venditore, distributore, idBiglietto1, isVidimato, dataConvalida);
         this.idVeicolo = idVeicolo;
     }
 
