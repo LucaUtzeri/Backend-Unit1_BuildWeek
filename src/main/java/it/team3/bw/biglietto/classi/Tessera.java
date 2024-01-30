@@ -1,0 +1,61 @@
+package it.team3.bw.biglietto.classi;
+
+import java.time.LocalDate;
+
+public class Tessera {
+    private int idTessera;
+    private int idUtente;
+    private LocalDate dataEmissioneTessera = LocalDate.now();
+    private LocalDate dataScadenzaTessera;
+    private boolean stato;
+
+    public Tessera(){}
+
+    public Tessera(int idTessera, int idUtente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera, boolean stato) {
+        this.idTessera = idTessera;
+        this.idUtente = idUtente;
+        this.dataEmissioneTessera = dataEmissioneTessera;
+        this.dataScadenzaTessera = dataScadenzaTessera;
+        this.stato = stato;
+    }
+
+    public int getIdTessera() {
+        return idTessera;
+    }
+
+    public void setIdTessera(int idTessera) {
+        this.idTessera = idTessera;
+    }
+
+    public int getIdUtente() {
+        return idUtente;
+    }
+
+    public void setIdUtente(int idUtente) {
+        this.idUtente = idUtente;
+    }
+
+    public LocalDate getDataEmissioneTessera() {
+        return dataEmissioneTessera;
+    }
+
+    public void setDataEmissioneTessera(LocalDate dataEmissioneTessera) {
+        this.dataEmissioneTessera = dataEmissioneTessera;
+    }
+
+    public LocalDate getDataScadenzaTessera() {
+        return dataScadenzaTessera;
+    }
+
+    public void setDataScadenzaTessera(LocalDate dataScadenzaTessera) {
+        this.dataScadenzaTessera = dataScadenzaTessera;
+    }
+
+    public boolean isStato() {
+        return stato;
+    }
+
+    public void setStato(boolean stato) {
+        this.stato = stato;
+    }
+}
