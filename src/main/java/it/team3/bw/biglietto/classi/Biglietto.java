@@ -72,6 +72,7 @@ public class Biglietto {
     public enum StatoBiglietto {
         ATTIVO,
         VIDIMATO
+
     }
 
 

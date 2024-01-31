@@ -56,9 +56,9 @@ public class PuntoEmissione {
         this.attivo = attivo;
     }
 
-    public int getBigliettiRimasti(){
-        return BigliettiRimasti;
-    }
+   public int getBigliettiRimasti(){
+       return BigliettiRimasti;
+   }
 
     public void setBigliettiRimasti(int bigliettiRimasti){
         this.BigliettiRimasti = bigliettiRimasti;
