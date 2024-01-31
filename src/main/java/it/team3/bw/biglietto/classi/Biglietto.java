@@ -13,18 +13,20 @@ public class Biglietto {
 
     @ManyToOne
     @JoinColumn(name = "id_punto_emissione")
-    private Long idPuntoEmissione;
+    private PuntoEmissione PuntoEmissione;
 
     @ManyToOne
     @JoinColumn(name = "id_utente")
     private Long idUtente;
 
+
+
     public Biglietto(){}
 
-    public Biglietto(Long idBiglietto, StatoBiglietto statoBiglietto, Long idPuntoEmissione, Long idUtente) {
+    public Biglietto(Long idBiglietto, StatoBiglietto statoBiglietto, PuntoEmissione PuntoEmissione, Long idUtente) {
         this.idBiglietto = idBiglietto;
         this.statoBiglietto = statoBiglietto;
-        this.idPuntoEmissione = idPuntoEmissione;
+        this.PuntoEmissione = PuntoEmissione;
         this.idUtente = idUtente;
     }
 
@@ -44,13 +46,12 @@ public class Biglietto {
         this.statoBiglietto = statoBiglietto;
     }
 
-    public Long getIdPuntoEmissione() {
-        return idPuntoEmissione;
-    }
+    //public PuntoEmissione getIdPuntoEmissione() {
+       // return PuntoEmissione;
+    //}
 
-    public void setIdPuntoEmissione(Long idPuntoEmissione) {
-        this.idPuntoEmissione = idPuntoEmissione;
-    }
+    //public void setIdPuntoEmissione(PuntoEmissione idPuntoEmissione) {
+    //}
 
     public Long getIdUtente() {
         return idUtente;
@@ -60,8 +61,18 @@ public class Biglietto {
         this.idUtente = idUtente;
     }
 
+    public PuntoEmissione getPuntoEmissione(){
+        return PuntoEmissione;
+    }
+
+    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
+        this.PuntoEmissione = puntoEmissione;
+    }
+
     public enum StatoBiglietto {
         ATTIVO,
         VIDIMATO
     }
+
+
 }

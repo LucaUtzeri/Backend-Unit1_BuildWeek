@@ -13,15 +13,17 @@ public class PuntoEmissione {
     @Column (name = "id_punto_emissione")
     private Long idPuntoEmissione;
     @Column
+    private String nome;
+    @Column
     private Tipologia tipologia;
     @Column
-    private boolean stato;
+    private boolean attivo;
 
     public PuntoEmissione(){}
 
-    public PuntoEmissione( Tipologia tipologia, boolean stato) {
+    public PuntoEmissione( Tipologia tipologia, boolean attivo) {
         this.tipologia = tipologia;
-        this.stato = stato;
+        this.attivo = attivo;
     }
 
     public Long getIdPuntoEmissione() {
@@ -40,11 +42,11 @@ public class PuntoEmissione {
         this.tipologia = tipologia;
     }
 
-    public boolean isStato() {
-        return stato;
+    public boolean isAttivo() {
+        return attivo;
     }
 
-    public void setStato(boolean stato) {
-        this.stato = stato;
+    public void setStato(boolean attivo) {
+        this.attivo = attivo;
     }
 }

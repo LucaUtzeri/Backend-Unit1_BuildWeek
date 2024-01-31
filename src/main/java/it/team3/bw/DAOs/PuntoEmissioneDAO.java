@@ -4,11 +4,20 @@ import it.team3.bw.biglietto.classi.PuntoEmissione;
 import it.team3.bw.biglietto.enums.Tipologia;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 public class PuntoEmissioneDAO {
     private EntityManager em;
-    public PuntoEmissioneDAO(EntityManager em){this.em = em;}
+    public PuntoEmissioneDAO(){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("puntoEmissione");
+        em = emf.createEntityManager();
+
+    }
+
+    
+
     public PuntoEmissione findPeById(Long id) {
         return em.find(PuntoEmissione.class, id);
     }
