@@ -2,7 +2,6 @@ package it.team3.bw.DAOs;
 
 import it.team3.bw.biglietto.classi.Biglietto;
 import it.team3.bw.biglietto.classi.PuntoEmissione;
-import org.apache.commons.lang3.reflect.Typed;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -40,6 +39,7 @@ public class BigliettoDAO {
     public List<Biglietto> getBigliettoByPuntoEmissione(PuntoEmissione puntoEmissione){
         TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.statoBiglietto = :statoBiglietto", Biglietto.class);
         query.setParameter("statoBiglietto", puntoEmissione);
+        return null;
     }
 
     public List<Biglietto> getActiveBiglietto(){
