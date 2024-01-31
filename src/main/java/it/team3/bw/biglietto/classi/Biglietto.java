@@ -45,7 +45,7 @@ public class Biglietto {
     }
 
     public Long getIdPuntoEmissione() {
-        return Long.valueOf(idPuntoEmissione);
+        return idPuntoEmissione;
     }
 
     public void setIdPuntoEmissione(Long idPuntoEmissione) {
@@ -53,7 +53,7 @@ public class Biglietto {
     }
 
     public Long getIdUtente() {
-        return Long.valueOf(idUtente);
+        return idUtente;
     }
 
     public void setIdUtente(Long idUtente) {
