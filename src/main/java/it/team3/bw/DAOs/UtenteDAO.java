@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 
 public class UtenteDAO {
 
-    private EntityManager em;
+    private final EntityManager em;
     public UtenteDAO(EntityManager em){this.em = em;}
 
     public void saveUtente(Utente utente){

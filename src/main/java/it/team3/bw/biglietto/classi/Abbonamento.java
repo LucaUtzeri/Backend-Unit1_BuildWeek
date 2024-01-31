@@ -1,12 +1,13 @@
 package it.team3.bw.biglietto.classi;
 
 import it.team3.bw.biglietto.enums.TipologiaAbbonamento;
+import it.team3.bw.biglietto.superclassi.Documento;
 
 import java.time.LocalDate;
 
-public class Abbonamento {
-    private int idAbbonamento;
-    private int idTessera;
+public class Abbonamento extends Documento {
+    private long idAbbonamento;
+    private long idTessera;
     private TipologiaAbbonamento tipologiaAbbonamento;
     private LocalDate dataInizioAbbonamento = LocalDate.now();
     private LocalDate dataScadenza;
@@ -16,7 +17,8 @@ public class Abbonamento {
 
     public Abbonamento(){}
 
-    public Abbonamento(int idAbbonamento, int idTessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, int id_PuntoEmissione, String nomeUtente, String cognomeUtente) {
+    public Abbonamento(int idDocumento, int dataEmissione, int idEmissione, long idAbbonamento, long idTessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, int id_PuntoEmissione, String nomeUtente, String cognomeUtente) {
+        super(idDocumento, dataEmissione, idEmissione);
         this.idAbbonamento = idAbbonamento;
         this.idTessera = idTessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;
@@ -27,19 +29,19 @@ public class Abbonamento {
         this.cognomeUtente = cognomeUtente;
     }
 
-    public int getIdAbbonamento() {
+    public long getIdAbbonamento() {
         return idAbbonamento;
     }
 
-    public void setIdAbbonamento(int idAbbonamento) {
+    public void setIdAbbonamento(long idAbbonamento) {
         this.idAbbonamento = idAbbonamento;
     }
 
-    public int getIdTessera() {
+    public long getIdTessera() {
         return idTessera;
     }
 
-    public void setIdTessera(int idTessera) {
+    public void setIdTessera(long idTessera) {
         this.idTessera = idTessera;
     }
 

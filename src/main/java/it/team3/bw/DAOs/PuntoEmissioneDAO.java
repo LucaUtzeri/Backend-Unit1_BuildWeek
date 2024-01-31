@@ -1,10 +1,8 @@
 package it.team3.bw.DAOs;
 
-import it.team3.bw.biglietto.classi.PuntoEmissione;
-import it.team3.bw.biglietto.enums.Tipologia;
+import it.team3.bw.biglietto.superclassi.PuntoEmissione;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 public class PuntoEmissioneDAO {
     private EntityManager em;
@@ -13,16 +11,16 @@ public class PuntoEmissioneDAO {
         return em.find(PuntoEmissione.class, id);
     }
 
-    public PuntoEmissione findPe(Tipologia tipologia){
-        return em.find(PuntoEmissione.class,tipologia);
-    }
-    public void savePe(PuntoEmissione puntoEmissione){
-        EntityTransaction transaction = em.getTransaction();
-        transaction.begin();
-        em.persist(puntoEmissione);
-        transaction.commit();
-        System.out.println(puntoEmissione.getTipologia() + " salvato");
-    }
+//    public PuntoEmissione findPe(Tipologia tipologia){
+//        return em.find(PuntoEmissione.class,tipologia);
+//    }
+//    public void savePe(PuntoEmissione puntoEmissione){
+//        EntityTransaction transaction = em.getTransaction();
+//        transaction.begin();
+//        em.persist(puntoEmissione);
+//        transaction.commit();
+//        System.out.println(puntoEmissione.getTipologia() + " salvato");
+//    }
 
 
 }

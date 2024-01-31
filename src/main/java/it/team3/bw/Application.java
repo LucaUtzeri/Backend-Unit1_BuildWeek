@@ -3,7 +3,6 @@ package it.team3.bw;
 import com.github.javafaker.Faker;
 import it.team3.bw.DAOs.PuntoEmissioneDAO;
 import it.team3.bw.DAOs.UtenteDAO;
-import it.team3.bw.biglietto.classi.PuntoEmissione;
 import it.team3.bw.biglietto.classi.Utente;
 
 import javax.persistence.EntityManager;
@@ -36,6 +35,11 @@ public class Application {
 //        };
         Utente utente1 = new Utente(faker.name().name(),faker.name().lastName(),documento);
         ud.saveUtente(utente1);
-        PuntoEmissione pe1 = new PuntoEmissione();
+
+
+
+
+        em.close();
+        emf.close();
     }
 }

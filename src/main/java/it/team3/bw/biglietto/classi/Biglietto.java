@@ -1,8 +1,9 @@
 package it.team3.bw.biglietto.classi;
 
 import it.team3.bw.biglietto.enums.StatoBiglietto;
+import it.team3.bw.biglietto.superclassi.Documento;
 
-public class Biglietto {
+public class Biglietto extends Documento {
     private int idBiglietto;
     private StatoBiglietto statoBiglietto;
     private int idPuntoEmissione;
@@ -10,7 +11,8 @@ public class Biglietto {
 
     public Biglietto(){}
 
-    public Biglietto(int idBiglietto, StatoBiglietto statoBiglietto, int idPuntoEmissione, int idUtente) {
+    public Biglietto(int idDocumento, int dataEmissione, int idEmissione, int idBiglietto, StatoBiglietto statoBiglietto, int idPuntoEmissione, int idUtente) {
+        super(idDocumento, dataEmissione, idEmissione);
         this.idBiglietto = idBiglietto;
         this.statoBiglietto = statoBiglietto;
         this.idPuntoEmissione = idPuntoEmissione;
