@@ -3,6 +3,7 @@ package it.team3.bw.biglietto.classi;
 import it.team3.bw.biglietto.enums.StatoBiglietto;
 
 public class Biglietto {
+
     private int idBiglietto;
     private StatoBiglietto statoBiglietto;
     private int idPuntoEmissione;

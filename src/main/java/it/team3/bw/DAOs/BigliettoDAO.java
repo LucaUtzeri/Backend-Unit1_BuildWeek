@@ -1,6 +1,7 @@
 package it.team3.bw.DAOs;
 
 import it.team3.bw.biglietto.classi.Biglietto;
+import org.apache.commons.lang3.reflect.Typed;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +32,17 @@ public class BigliettoDAO {
     }
 
     public List<Biglietto> getAllBiglietto(){
-        TypedQuery<Biglietto> query = entityManager.createQuery("SELECT t FROM Ticket t", Biglietto.class);
+        TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b", Biglietto.class);
         return query.getResultList();
+    }
+
+    public List<Biglietto> getBigliettoByPuntoEmissione(){
+        TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.statoBiglietto = :statoBiglietto", Biglietto.class);
+        query.setParameter("statoBiglietto", Biglietto.StatoBiglietto.ATTIVO);
+    }
+
+    public List<Biglietto> getActiveBiglietto(){
+        TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.statoBiglietto = :statoBiglietto", Biglietto.class);
+        query.setParameter("statoBiglietto")
     }
 }
