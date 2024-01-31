@@ -18,9 +18,9 @@ public class UtenteDAO {
         System.out.println(utente.getNomeUtente() + " salvato");
     }
 
-    public Utente findUtente(int id){return em.find(Utente.class, id);}
+    public Utente findUtente(Long id){return em.find(Utente.class, id);}
 
-    public void cancellaUtente(int id){
+    public void cancellaUtente(Long id){
         Utente utente = this.findUtente(id);
         if (utente != null){
             EntityTransaction transaction = em.getTransaction();

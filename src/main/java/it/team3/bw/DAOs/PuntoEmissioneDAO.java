@@ -9,7 +9,7 @@ import javax.persistence.EntityTransaction;
 public class PuntoEmissioneDAO {
     private EntityManager em;
     public PuntoEmissioneDAO(EntityManager em){this.em = em;}
-    public PuntoEmissione findPeById(int id) {
+    public PuntoEmissione findPeById(Long id) {
         return em.find(PuntoEmissione.class, id);
     }
 

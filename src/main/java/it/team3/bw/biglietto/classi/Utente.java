@@ -10,7 +10,7 @@ public class Utente {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     @Column (name = "id_utente")
-    private int idUtente;
+    private Long idUtente;
     @Column (name = "nome_utente")
     private String nomeUtente;
     @Column (name = "cognome_utente")
@@ -25,11 +25,11 @@ public class Utente {
         this.documento = documento;
     }
 
-    public int getIdUtente() {
+    public Long getIdUtente() {
         return idUtente;
     }
 
-    public void setIdUtente(int idUtente) {
+    public void setIdUtente(Long idUtente) {
         this.idUtente = idUtente;
     }
 

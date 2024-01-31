@@ -11,7 +11,7 @@ public class PuntoEmissione {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_punto_emissione")
-    private int idPuntoEmissione;
+    private Long idPuntoEmissione;
     @Column
     private Tipologia tipologia;
     @Column
@@ -24,11 +24,11 @@ public class PuntoEmissione {
         this.stato = stato;
     }
 
-    public int getIdPuntoEmissione() {
+    public Long getIdPuntoEmissione() {
         return idPuntoEmissione;
     }
 
-    public void setIdPuntoEmissione(int idPuntoEmissione) {
+    public void setIdPuntoEmissione(Long idPuntoEmissione) {
         this.idPuntoEmissione = idPuntoEmissione;
     }
 

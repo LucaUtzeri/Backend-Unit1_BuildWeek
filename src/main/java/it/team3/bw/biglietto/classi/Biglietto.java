@@ -1,7 +1,5 @@
 package it.team3.bw.biglietto.classi;
 
-import it.team3.bw.biglietto.enums.StatoBiglietto;
-
 import javax.persistence.*;
 
 public class Biglietto {
@@ -15,11 +13,11 @@ public class Biglietto {
 
     @ManyToOne
     @JoinColumn(name = "id_punto_emissione")
-    private int idPuntoEmissione;
+    private Long idPuntoEmissione;
 
     @ManyToOne
     @JoinColumn(name = "id_utente")
-    private int idUtente;
+    private Long idUtente;
 
     public Biglietto(){}
 
@@ -47,18 +45,23 @@ public class Biglietto {
     }
 
     public Long getIdPuntoEmissione() {
-        return idPuntoEmissione;
+        return Long.valueOf(idPuntoEmissione);
     }
 
-    public void setIdPuntoEmissione(int idPuntoEmissione) {
+    public void setIdPuntoEmissione(Long idPuntoEmissione) {
         this.idPuntoEmissione = idPuntoEmissione;
     }
 
     public Long getIdUtente() {
-        return idUtente;
+        return Long.valueOf(idUtente);
     }
 
-    public void setIdUtente(int idUtente) {
+    public void setIdUtente(Long idUtente) {
         this.idUtente = idUtente;
+    }
+
+    public enum StatoBiglietto {
+        ATTIVO,
+        VIDIMATO
     }
 }

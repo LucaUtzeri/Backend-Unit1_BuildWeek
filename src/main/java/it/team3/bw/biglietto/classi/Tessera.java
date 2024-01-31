@@ -3,15 +3,15 @@ package it.team3.bw.biglietto.classi;
 import java.time.LocalDate;
 
 public class Tessera {
-    private int idTessera;
-    private int idUtente;
+    private Long idTessera;
+    private Long idUtente;
     private LocalDate dataEmissioneTessera = LocalDate.now();
     private LocalDate dataScadenzaTessera;
     private boolean stato;
 
     public Tessera(){}
 
-    public Tessera(int idTessera, int idUtente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera, boolean stato) {
+    public Tessera(Long idTessera, Long idUtente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera, boolean stato) {
         this.idTessera = idTessera;
         this.idUtente = idUtente;
         this.dataEmissioneTessera = dataEmissioneTessera;
@@ -19,19 +19,19 @@ public class Tessera {
         this.stato = stato;
     }
 
-    public int getIdTessera() {
+    public Long getIdTessera() {
         return idTessera;
     }
 
-    public void setIdTessera(int idTessera) {
+    public void setIdTessera(Long idTessera) {
         this.idTessera = idTessera;
     }
 
-    public int getIdUtente() {
+    public Long getIdUtente() {
         return idUtente;
     }
 
-    public void setIdUtente(int idUtente) {
+    public void setIdUtente(Long idUtente) {
         this.idUtente = idUtente;
     }
 
