@@ -18,12 +18,18 @@ public class PuntoEmissione {
     private Tipologia tipologia;
     @Column
     private boolean attivo;
+    @Column
+    private int BigliettiRimasti;
 
     public PuntoEmissione(){}
 
     public PuntoEmissione( Tipologia tipologia, boolean attivo) {
         this.tipologia = tipologia;
         this.attivo = attivo;
+        this.BigliettiRimasti = bigliettiRimasti;
+    }
+
+    public PuntoEmissione(boolean attivo) {
     }
 
     public Long getIdPuntoEmissione() {
@@ -48,5 +54,13 @@ public class PuntoEmissione {
 
     public void setStato(boolean attivo) {
         this.attivo = attivo;
+    }
+
+    public int getBigliettiRimasti(){
+        return BigliettiRimasti;
+    }
+
+    public void setBigliettiRimasti(int bigliettiRimasti){
+        this.BigliettiRimasti = bigliettiRimasti;
     }
 }

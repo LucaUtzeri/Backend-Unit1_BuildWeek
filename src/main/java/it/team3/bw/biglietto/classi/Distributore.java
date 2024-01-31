@@ -9,6 +9,6 @@ public class Distributore extends PuntoEmissione{
     public Distributore(){}
 
     public Distributore(String nome, boolean attivo){
-        super(Tipologia.valueOf(nome), attivo);
+        super( attivo);
     }
 }
