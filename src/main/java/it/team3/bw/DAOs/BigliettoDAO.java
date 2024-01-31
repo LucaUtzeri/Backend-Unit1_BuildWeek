@@ -1,6 +1,7 @@
 package it.team3.bw.DAOs;
 
 import it.team3.bw.biglietto.classi.Biglietto;
+import it.team3.bw.biglietto.classi.PuntoEmissione;
 import org.apache.commons.lang3.reflect.Typed;
 
 import javax.persistence.EntityManager;
@@ -36,13 +37,26 @@ public class BigliettoDAO {
         return query.getResultList();
     }
 
-    public List<Biglietto> getBigliettoByPuntoEmissione(){
+    public List<Biglietto> getBigliettoByPuntoEmissione(PuntoEmissione puntoEmissione){
         TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.statoBiglietto = :statoBiglietto", Biglietto.class);
-        query.setParameter("statoBiglietto", Biglietto.StatoBiglietto.ATTIVO);
+        query.setParameter("statoBiglietto", puntoEmissione);
     }
 
     public List<Biglietto> getActiveBiglietto(){
         TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.statoBiglietto = :statoBiglietto", Biglietto.class);
-        query.setParameter("statoBiglietto")
+        query.setParameter("statoBiglietto", Biglietto.StatoBiglietto.ATTIVO);
+        return query.getResultList();
+    }
+
+    public void updateBiglietto(Biglietto biglietto){
+        entityManager.getTransaction().begin();
+        entityManager.merge(biglietto);
+        entityManager.getTransaction().commit();
+    }
+
+    public void deleteBiglietto(Biglietto biglietto) {
+        entityManager.getTransaction().begin();
+        entityManager.remove(biglietto);
+        entityManager.getTransaction().commit();
     }
 }
