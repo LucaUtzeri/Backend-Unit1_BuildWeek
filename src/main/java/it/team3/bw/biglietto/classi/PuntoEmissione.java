@@ -2,15 +2,24 @@ package it.team3.bw.biglietto.classi;
 
 import it.team3.bw.biglietto.enums.Tipologia;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance (strategy = InheritanceType.JOINED)
+@Table (name = "punto_emissione")
 public class PuntoEmissione {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "id_punto_emissione")
     private int idPuntoEmissione;
+    @Column
     private Tipologia tipologia;
+    @Column
     private boolean stato;
 
     public PuntoEmissione(){}
 
-    public PuntoEmissione(int idPuntoEmissione, Tipologia tipologia, boolean stato) {
-        this.idPuntoEmissione = idPuntoEmissione;
+    public PuntoEmissione( Tipologia tipologia, boolean stato) {
         this.tipologia = tipologia;
         this.stato = stato;
     }
