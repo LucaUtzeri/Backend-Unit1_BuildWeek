@@ -6,7 +6,7 @@ public class Biglietto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBiglietto;
+    private long idBiglietto;
 
     @Enumerated(EnumType.STRING)
     private StatoBiglietto statoBiglietto;
@@ -17,24 +17,24 @@ public class Biglietto {
 
     @ManyToOne
     @JoinColumn(name = "id_utente")
-    private Long idUtente;
+    private long idUtente;
 
 
 
     public Biglietto(){}
 
-    public Biglietto(Long idBiglietto, StatoBiglietto statoBiglietto, PuntoEmissione PuntoEmissione, Long idUtente) {
+    public Biglietto(long idBiglietto, StatoBiglietto statoBiglietto, PuntoEmissione PuntoEmissione, long idUtente) {
         this.idBiglietto = idBiglietto;
         this.statoBiglietto = statoBiglietto;
         this.PuntoEmissione = PuntoEmissione;
         this.idUtente = idUtente;
     }
 
-    public Long getIdBiglietto() {
+    public long getIdBiglietto() {
         return idBiglietto;
     }
 
-    public void setIdBiglietto(Long idBiglietto) {
+    public void setIdBiglietto(long idBiglietto) {
         this.idBiglietto = idBiglietto;
     }
 
@@ -53,11 +53,11 @@ public class Biglietto {
     //public void setIdPuntoEmissione(PuntoEmissione idPuntoEmissione) {
     //}
 
-    public Long getIdUtente() {
+    public long getIdUtente() {
         return idUtente;
     }
 
-    public void setIdUtente(Long idUtente) {
+    public void setIdUtente(long idUtente) {
         this.idUtente = idUtente;
     }
 
