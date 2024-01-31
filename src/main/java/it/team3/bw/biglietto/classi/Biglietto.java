@@ -2,27 +2,39 @@ package it.team3.bw.biglietto.classi;
 
 import it.team3.bw.biglietto.enums.StatoBiglietto;
 
+import javax.persistence.*;
+
 public class Biglietto {
 
-    private int idBiglietto;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idBiglietto;
+
+    @Enumerated(EnumType.STRING)
     private StatoBiglietto statoBiglietto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_punto_emissione")
     private int idPuntoEmissione;
+
+    @ManyToOne
+    @JoinColumn(name = "id_utente")
     private int idUtente;
 
     public Biglietto(){}
 
-    public Biglietto(int idBiglietto, StatoBiglietto statoBiglietto, int idPuntoEmissione, int idUtente) {
+    public Biglietto(Long idBiglietto, StatoBiglietto statoBiglietto, Long idPuntoEmissione, Long idUtente) {
         this.idBiglietto = idBiglietto;
         this.statoBiglietto = statoBiglietto;
         this.idPuntoEmissione = idPuntoEmissione;
         this.idUtente = idUtente;
     }
 
-    public int getIdBiglietto() {
+    public Long getIdBiglietto() {
         return idBiglietto;
     }
 
-    public void setIdBiglietto(int idBiglietto) {
+    public void setIdBiglietto(Long idBiglietto) {
         this.idBiglietto = idBiglietto;
     }
 
@@ -34,7 +46,7 @@ public class Biglietto {
         this.statoBiglietto = statoBiglietto;
     }
 
-    public int getIdPuntoEmissione() {
+    public Long getIdPuntoEmissione() {
         return idPuntoEmissione;
     }
 
@@ -42,7 +54,7 @@ public class Biglietto {
         this.idPuntoEmissione = idPuntoEmissione;
     }
 
-    public int getIdUtente() {
+    public Long getIdUtente() {
         return idUtente;
     }
 
