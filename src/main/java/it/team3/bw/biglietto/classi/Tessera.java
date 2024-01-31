@@ -2,9 +2,9 @@ package it.team3.bw.biglietto.classi;
 
 import java.time.LocalDate;
 
-public class Tessera {
-    private Long idTessera;
-    private Long idUtente;
+public class Tessera{
+    private long idTessera;
+    private long idUtente;
     private LocalDate dataEmissioneTessera = LocalDate.now();
     private LocalDate dataScadenzaTessera;
     private boolean stato;
@@ -19,15 +19,16 @@ public class Tessera {
         this.stato = stato;
     }
 
-    public Long getIdTessera() {
+    public long getIdTessera() {
         return idTessera;
     }
 
-    public void setIdTessera(Long idTessera) {
+    public void setIdTessera(long idTessera) {
         this.idTessera = idTessera;
     }
 
-    public Long getIdUtente() {
+
+    public long getIdUtente() {
         return idUtente;
     }
 

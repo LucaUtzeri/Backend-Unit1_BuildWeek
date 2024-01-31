@@ -1,23 +1,23 @@
-package it.team3.bw.biglietto.classi;
+package it.team3.bw.biglietto.superclassi;
 
 public abstract class Documento {
-    private int idDocumento;
+    private long idDocumento;
     private int dataEmissione;
-    private int idEmissione;
+    private long idEmissione;
 
     public  Documento(){}
 
-    public Documento(int idDocumento, int dataEmissione, int idEmissione) {
+    public Documento(long idDocumento, int dataEmissione, long idEmissione) {
         this.idDocumento = idDocumento;
         this.dataEmissione = dataEmissione;
         this.idEmissione = idEmissione;
     }
 
-    public int getIdDocumento() {
+    public long getIdDocumento() {
         return idDocumento;
     }
 
-    public void setIdDocumento(int idDocumento) {
+    public void setIdDocumento(long idDocumento) {
         this.idDocumento = idDocumento;
     }
 
@@ -29,11 +29,11 @@ public abstract class Documento {
         this.dataEmissione = dataEmissione;
     }
 
-    public int getIdEmissione() {
+    public long getIdEmissione() {
         return idEmissione;
     }
 
-    public void setIdEmissione(int idEmissione) {
+    public void setIdEmissione(long idEmissione) {
         this.idEmissione = idEmissione;
     }
 }

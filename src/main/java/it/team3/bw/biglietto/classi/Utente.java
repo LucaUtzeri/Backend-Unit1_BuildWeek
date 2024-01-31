@@ -1,6 +1,7 @@
 package it.team3.bw.biglietto.classi;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)
@@ -8,9 +9,9 @@ import javax.persistence.*;
 public class Utente {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column (name = "id_utente")
-    private Long idUtente;
+    private long idUtente;
     @Column (name = "nome_utente")
     private String nomeUtente;
     @Column (name = "cognome_utente")
@@ -25,11 +26,11 @@ public class Utente {
         this.documento = documento;
     }
 
-    public Long getIdUtente() {
+    public long getIdUtente() {
         return idUtente;
     }
 
-    public void setIdUtente(Long idUtente) {
+    public void setIdUtente(long idUtente) {
         this.idUtente = idUtente;
     }
 
@@ -55,5 +56,15 @@ public class Utente {
 
     public void setDocumento(String documento) {
         this.documento = documento;
+    }
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "idUtente=" + idUtente +
+                ", nomeUtente='" + nomeUtente + '\'' +
+                ", cognomeUtente='" + cognomeUtente + '\'' +
+                ", documento='" + documento + '\'' +
+                '}';
     }
 }
