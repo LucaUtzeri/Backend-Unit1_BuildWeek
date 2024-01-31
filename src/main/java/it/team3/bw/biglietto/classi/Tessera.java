@@ -9,7 +9,7 @@ public class Tessera {
     private LocalDate dataScadenzaTessera;
     private boolean stato;
 
-    public Tessera(){}
+    public Tessera() {}
 
     public Tessera(Long idTessera, Long idUtente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera, boolean stato) {
         this.idTessera = idTessera;
@@ -18,6 +18,7 @@ public class Tessera {
         this.dataScadenzaTessera = dataScadenzaTessera;
         this.stato = stato;
     }
+
 
     public Long getIdTessera() {
         return idTessera;
