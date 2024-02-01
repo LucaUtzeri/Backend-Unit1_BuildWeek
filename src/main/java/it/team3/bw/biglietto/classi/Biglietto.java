@@ -27,15 +27,44 @@ public class Biglietto extends Documento {
 
     public Biglietto(){}
 
-    public Biglietto(long idDocumento, LocalDate dataEmissione, long idEmissione, long idBiglietto, LocalDate dataAquisto, StatoBiglietto statoBiglietto, it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione, long idUtente) {
-        super(idDocumento, dataEmissione, idEmissione);
-        this.idBiglietto = idBiglietto;
+    public Biglietto(LocalDate dataEmissione, long idEmissione, long idBiglietto, LocalDate dataAquisto, StatoBiglietto statoBiglietto, it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione, long idUtente) {
         this.dataAquisto = dataAquisto;
         this.statoBiglietto = statoBiglietto;
         PuntoEmissione = puntoEmissione;
         this.idUtente = idUtente;
     }
 
+    public LocalDate getDataAquisto() {
+        return dataAquisto;
+    }
+
+    public void setDataAquisto(LocalDate dataAquisto) {
+        this.dataAquisto = dataAquisto;
+    }
+
+    public StatoBiglietto getStatoBiglietto() {
+        return statoBiglietto;
+    }
+
+    public void setStatoBiglietto(StatoBiglietto statoBiglietto) {
+        this.statoBiglietto = statoBiglietto;
+    }
+
+    public it.team3.bw.biglietto.classi.PuntoEmissione getPuntoEmissione() {
+        return PuntoEmissione;
+    }
+
+    public void setPuntoEmissione(it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione) {
+        PuntoEmissione = puntoEmissione;
+    }
+
+    public long getIdUtente() {
+        return idUtente;
+    }
+
+    public void setIdUtente(long idUtente) {
+        this.idUtente = idUtente;
+    }
     //    public enum StatoBiglietto {
 //        ATTIVO,
 //        VIDIMATO

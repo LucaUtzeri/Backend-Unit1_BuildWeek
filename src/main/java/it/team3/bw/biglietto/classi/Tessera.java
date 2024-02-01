@@ -1,8 +1,6 @@
 package it.team3.bw.biglietto.classi;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class Tessera{
@@ -10,7 +8,8 @@ public class Tessera{
     @GeneratedValue
     @Column (name = "id_tessera")
     private long idTessera;
-//    private long idUtente;
+    @OneToOne
+    private Utente utente;
     @Column (name = "data_emissione")
     private LocalDate dataEmissioneTessera;
     @Column(name = "data_scadenza")
