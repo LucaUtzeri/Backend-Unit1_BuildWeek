@@ -16,6 +16,8 @@ public class Tratta {
     private String puntoPartenza;
     private String capolinea;
 
+    private double percorrenzaMedia;
+
     public Tratta(){}
 
     public Tratta(String puntoPartenza, String capolinea){
@@ -45,6 +47,14 @@ public class Tratta {
 
     public void setCapolinea(String capolinea){
         this.capolinea = capolinea;
+    }
+
+    public void calcolaPercorrenzaMedia(double distanza, double tempo){
+        if( tempo != 0) {
+            this.percorrenzaMedia = distanza / tempo;
+        } else {
+            this.percorrenzaMedia = 0;
+        }
     }
 }
 

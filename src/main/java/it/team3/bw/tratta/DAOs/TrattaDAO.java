@@ -27,4 +27,6 @@ public class TrattaDAO {
     public Tratta getTrattaById(long id){
         return entityManager.find(Tratta.class, id);
     }
+
+
 }
