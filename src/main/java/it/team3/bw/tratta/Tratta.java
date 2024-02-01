@@ -1,22 +1,26 @@
 package it.team3.bw.tratta;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
-
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table (name = "tratta")
 public class Tratta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_tratta")
     private long idTratta;
-
+    @Column
     private String puntoPartenza;
+    @Column
     private String capolinea;
-
+    @Column (name = "percorrenza_media")
     private double percorrenzaMedia;
+    @Column(name = "num_percorso_mezzo")
+    private int numPercorsoMezzo;
+    @Column(name = "tempo_percorso_mezzo")
+    private int tempoPercorsoMezzo;
 
     public Tratta(){}
 
@@ -55,6 +59,18 @@ public class Tratta {
         } else {
             this.percorrenzaMedia = 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Tratta{" +
+                "idTratta=" + idTratta +
+                ", puntoPartenza=" + puntoPartenza +
+                ", capolinea=" + capolinea +
+                ", percorrenzaMedia=" + percorrenzaMedia +
+                ", numPercorsoMezzo='" + numPercorsoMezzo  +
+                ", tempoPercorsoMezzo='" + tempoPercorsoMezzo  +
+                '}';
     }
 }
 
