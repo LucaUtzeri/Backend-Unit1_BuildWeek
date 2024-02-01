@@ -9,7 +9,8 @@ public class Tessera {
     private LocalDate dataScadenzaTessera;
     private boolean stato;
 
-    public Tessera(){}
+    public Tessera() {
+    }
 
     public Tessera(long idTessera, long idUtente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera, boolean stato) {
         this.idTessera = idTessera;

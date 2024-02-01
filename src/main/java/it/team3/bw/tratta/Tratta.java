@@ -18,18 +18,21 @@ public class Tratta {
     private String puntoPartenza;
     @Column
     private String capolinea;
-    @Column (name = "percorrenza_media")
+    @Column
     private double percorrenzaMedia;
-    @Column(name = "num_percorso_mezzo")
+    @Column
     private int numPercorsoMezzo;
-    @Column(name = "tempo_percorso_mezzo")
+    @Column
     private int tempoPercorsoMezzo;
 
     public Tratta(){}
 
-    public Tratta(String puntoPartenza, String capolinea){
+    public Tratta(String puntoPartenza, String capolinea, double percorrenzaMedia, int numPercorsoMezzo, int tempoPercorsoMezzo){
         this.puntoPartenza = puntoPartenza;
         this.capolinea = capolinea;
+        this.percorrenzaMedia = percorrenzaMedia;
+        this.numPercorsoMezzo = numPercorsoMezzo;
+        this.tempoPercorsoMezzo = tempoPercorsoMezzo;
     }
 
     public long getIdTratta(){
@@ -56,6 +59,30 @@ public class Tratta {
         this.capolinea = capolinea;
     }
 
+    public double getPercorrenzaMedia() {
+        return percorrenzaMedia;
+    }
+
+    public void setPercorrenzaMedia(double percorrenzaMedia){
+        this.percorrenzaMedia = percorrenzaMedia;
+    }
+
+   public int getNumPercorsoMezzo(){
+        return numPercorsoMezzo;
+   }
+
+   public void setNumPercorsoMezzo(int numPercorsoMezzo){
+        this.numPercorsoMezzo = numPercorsoMezzo;
+   }
+
+   public int getTempoPercorsoMezzo(){
+        return tempoPercorsoMezzo;
+   }
+
+   public void setTempoPercorsoMezzo(int tempoPercorsoMezzo){
+        this.tempoPercorsoMezzo = tempoPercorsoMezzo;
+   }
+
     public void calcolaPercorrenzaMedia(double distanza, double tempo){
         if( tempo != 0) {
             this.percorrenzaMedia = distanza / tempo;
@@ -63,6 +90,12 @@ public class Tratta {
             this.percorrenzaMedia = 0;
         }
     }
+
+    public void aggiornaPercorrenza(int tempo, int volte){
+        this.tempoPercorsoMezzo += tempo;
+        this.numPercorsoMezzo += volte;
+    }
+
 
     @Override
     public String toString() {
