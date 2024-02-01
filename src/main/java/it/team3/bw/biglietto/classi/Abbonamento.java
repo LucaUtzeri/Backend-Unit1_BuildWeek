@@ -1,32 +1,39 @@
 package it.team3.bw.biglietto.classi;
 
 import it.team3.bw.biglietto.enums.TipologiaAbbonamento;
-import it.team3.bw.biglietto.superclassi.Documento;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 public class Abbonamento extends Documento {
+    @Id
+    @GeneratedValue
+    @Column (name = "id_abbonamento")
     private long idAbbonamento;
-    private long idTessera;
+    @OneToOne
+    @JoinColumn (name = "id_tessera")
+    private Tessera tessera;
+    @Column (name = "tipo_abbonamento")
     private TipologiaAbbonamento tipologiaAbbonamento;
-    private LocalDate dataInizioAbbonamento = LocalDate.now();
+    @Column (name = "inizio_abbonamento")
+    private LocalDate dataInizioAbbonamento;
+    @Column (name = "scadenza")
     private LocalDate dataScadenza;
+    @OneToOne
+    @JoinColumn(name = "id_utente")
+    private Utente utente;
     private int id_PuntoEmissione;
-    private String nomeUtente;
-    private String cognomeUtente;
 
     public Abbonamento(){}
 
-    public Abbonamento(int idDocumento, int dataEmissione, int idEmissione, long idAbbonamento, long idTessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, int id_PuntoEmissione, String nomeUtente, String cognomeUtente) {
+    public Abbonamento(long idDocumento, LocalDate dataEmissione, long idEmissione, long idAbbonamento, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, Utente utente) {
         super(idDocumento, dataEmissione, idEmissione);
         this.idAbbonamento = idAbbonamento;
-        this.idTessera = idTessera;
+        this.tessera = tessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;
         this.dataInizioAbbonamento = dataInizioAbbonamento;
         this.dataScadenza = dataScadenza;
-        this.id_PuntoEmissione = id_PuntoEmissione;
-        this.nomeUtente = nomeUtente;
-        this.cognomeUtente = cognomeUtente;
+        this.utente = utente;
     }
 
     public long getIdAbbonamento() {
@@ -37,12 +44,12 @@ public class Abbonamento extends Documento {
         this.idAbbonamento = idAbbonamento;
     }
 
-    public long getIdTessera() {
-        return idTessera;
+    public Tessera getTessera() {
+        return tessera;
     }
 
-    public void setIdTessera(long idTessera) {
-        this.idTessera = idTessera;
+    public void setTessera(Tessera tessera) {
+        this.tessera = tessera;
     }
 
     public TipologiaAbbonamento getTipologiaAbbonamento() {
@@ -69,27 +76,23 @@ public class Abbonamento extends Documento {
         this.dataScadenza = dataScadenza;
     }
 
-    public int getId_PuntoEmissione() {
-        return id_PuntoEmissione;
+    public Utente getUtente() {
+        return utente;
     }
 
-    public void setId_PuntoEmissione(int id_PuntoEmissione) {
-        this.id_PuntoEmissione = id_PuntoEmissione;
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
 
-    public String getNomeUtente() {
-        return nomeUtente;
-    }
-
-    public void setNomeUtente(String nomeUtente) {
-        this.nomeUtente = nomeUtente;
-    }
-
-    public String getCognomeUtente() {
-        return cognomeUtente;
-    }
-
-    public void setCognomeUtente(String cognomeUtente) {
-        this.cognomeUtente = cognomeUtente;
+    @Override
+    public String toString() {
+        return "Abbonamento{" +
+                "idAbbonamento=" + idAbbonamento +
+                ", tessera=" + tessera +
+                ", tipologiaAbbonamento=" + tipologiaAbbonamento +
+                ", dataInizioAbbonamento=" + dataInizioAbbonamento +
+                ", dataScadenza=" + dataScadenza +
+                ", utente=" + utente +
+                '}';
     }
 }

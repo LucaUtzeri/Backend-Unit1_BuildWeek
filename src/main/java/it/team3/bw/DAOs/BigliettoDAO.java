@@ -44,7 +44,7 @@ public class BigliettoDAO {
 
     public List<Biglietto> getActiveBiglietto(){
         TypedQuery<Biglietto> query = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.statoBiglietto = :statoBiglietto", Biglietto.class);
-        query.setParameter("statoBiglietto", Biglietto.StatoBiglietto.ATTIVO);
+        query.setParameter("statoBiglietto", Biglietto.class);
         return query.getResultList();
     }
 

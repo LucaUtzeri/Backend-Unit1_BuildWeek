@@ -1,13 +1,15 @@
-package it.team3.bw.biglietto.superclassi;
+package it.team3.bw.biglietto.classi;
+
+import java.time.LocalDate;
 
 public abstract class Documento {
     private long idDocumento;
-    private int dataEmissione;
+    private LocalDate dataEmissione;
     private long idEmissione;
 
     public  Documento(){}
 
-    public Documento(long idDocumento, int dataEmissione, long idEmissione) {
+    public Documento(long idDocumento, LocalDate dataEmissione, long idEmissione) {
         this.idDocumento = idDocumento;
         this.dataEmissione = dataEmissione;
         this.idEmissione = idEmissione;
@@ -23,11 +25,11 @@ public abstract class Documento {
         this.idDocumento = idDocumento;
     }
 
-    public int getDataEmissione() {
+    public LocalDate getDataEmissione() {
         return dataEmissione;
     }
 
-    public void setDataEmissione(int dataEmissione) {
+    public void setDataEmissione(LocalDate dataEmissione) {
         this.dataEmissione = dataEmissione;
     }
 
@@ -37,5 +39,14 @@ public abstract class Documento {
 
     public void setIdEmissione(long idEmissione) {
         this.idEmissione = idEmissione;
+    }
+
+    @Override
+    public String toString() {
+        return "Documento{" +
+                "idDocumento=" + idDocumento +
+                ", dataEmissione=" + dataEmissione +
+                ", idEmissione=" + idEmissione +
+                '}';
     }
 }
