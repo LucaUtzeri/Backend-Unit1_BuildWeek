@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class TrattaDAO {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public TrattaDAO() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("be-buildweek1");
@@ -26,6 +26,12 @@ public class TrattaDAO {
 
     public Tratta getTrattaById(long id){
         return entityManager.find(Tratta.class, id);
+    }
+
+    public void aggiornaTratta(Tratta tratta){
+        entityManager.getTransaction().begin();
+        entityManager.merge(tratta);
+        entityManager.getTransaction().commit();
     }
 
 

@@ -13,7 +13,7 @@ public class BigliettoDAO {
     private final EntityManager entityManager;
 
     public BigliettoDAO(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("biglietto");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("be-buildweek1");
         entityManager = emf.createEntityManager();
     }
 

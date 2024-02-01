@@ -91,7 +91,7 @@ public class Tratta {
         }
     }
 
-    public void aggiornaPercorrenza(int tempo, int volte){
+    public void aggiornaTratta(int tempo, int volte){
         this.tempoPercorsoMezzo += tempo;
         this.numPercorsoMezzo += volte;
     }
