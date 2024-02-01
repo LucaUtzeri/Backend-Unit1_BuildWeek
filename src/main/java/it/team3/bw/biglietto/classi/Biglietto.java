@@ -1,41 +1,44 @@
 package it.team3.bw.biglietto.classi;
 
-import javax.persistence.*;
+import it.team3.bw.biglietto.enums.StatoBiglietto;
 
-public class Biglietto {
+import javax.persistence.*;
+import java.time.LocalDate;
+
+public class Biglietto extends Documento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_biglietto")
     private long idBiglietto;
+    @Column
+    private LocalDate dataAquisto;
 
     @Enumerated(EnumType.STRING)
     private StatoBiglietto statoBiglietto;
 
-    @ManyToOne
-    @JoinColumn(name = "id_punto_emissione")
+    @OneToOne
+    @Column (name = "punto_emissione")
     private PuntoEmissione PuntoEmissione;
 
-    @ManyToOne
-    @JoinColumn(name = "id_utente")
-    private long idUtente;
-
-
+    @OneToOne
+    private Utente utente;
 
     public Biglietto(){}
 
-    public Biglietto(long idBiglietto, StatoBiglietto statoBiglietto, PuntoEmissione PuntoEmissione, long idUtente) {
-        this.idBiglietto = idBiglietto;
+    public Biglietto(LocalDate dataEmissione, long idEmissione, long idBiglietto, LocalDate dataAquisto, StatoBiglietto statoBiglietto,PuntoEmissione puntoEmissione, Utente utente) {
+        this.dataAquisto = dataAquisto;
         this.statoBiglietto = statoBiglietto;
-        this.PuntoEmissione = PuntoEmissione;
-        this.idUtente = idUtente;
+        PuntoEmissione = puntoEmissione;
+        this.utente = utente;
     }
 
-    public long getIdBiglietto() {
-        return idBiglietto;
+    public LocalDate getDataAquisto() {
+        return dataAquisto;
     }
 
-    public void setIdBiglietto(long idBiglietto) {
-        this.idBiglietto = idBiglietto;
+    public void setDataAquisto(LocalDate dataAquisto) {
+        this.dataAquisto = dataAquisto;
     }
 
     public StatoBiglietto getStatoBiglietto() {
@@ -46,34 +49,79 @@ public class Biglietto {
         this.statoBiglietto = statoBiglietto;
     }
 
-    //public PuntoEmissione getIdPuntoEmissione() {
-       // return PuntoEmissione;
-    //}
-
-    //public void setIdPuntoEmissione(PuntoEmissione idPuntoEmissione) {
-    //}
-
-    public long getIdUtente() {
-        return idUtente;
-    }
-
-    public void setIdUtente(long idUtente) {
-        this.idUtente = idUtente;
-    }
-
-    public PuntoEmissione getPuntoEmissione(){
+    public it.team3.bw.biglietto.classi.PuntoEmissione getPuntoEmissione() {
         return PuntoEmissione;
     }
 
-    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
-        this.PuntoEmissione = puntoEmissione;
+    public void setPuntoEmissione(it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione) {
+        PuntoEmissione = puntoEmissione;
     }
 
-    public enum StatoBiglietto {
-        ATTIVO,
-        VIDIMATO
-
+    public Utente getUtente() {
+        return utente;
     }
+
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+    }
+
+    //    public enum StatoBiglietto {
+//        ATTIVO,
+//        VIDIMATO
+//
+//    }
+
+
+//    public Biglietto(long idBiglietto, StatoBiglietto statoBiglietto, PuntoEmissione PuntoEmissione, long idUtente) {
+//
+//    public Biglietto(long idDocumento, int dataEmissione, int idEmissione, int idBiglietto, StatoBiglietto statoBiglietto, int idPuntoEmissione, int idUtente) {
+//        super(idDocumento, dataEmissione, idEmissione);
+//
+//        this.idBiglietto = idBiglietto;
+//        this.statoBiglietto = statoBiglietto;
+//        this.PuntoEmissione = PuntoEmissione;
+//        this.idUtente = idUtente;
+//    }
+//
+//    public Long getIdBiglietto() {
+//        return idBiglietto;
+//    }
+//
+//    public void setIdBiglietto(Long idBiglietto) {
+//        this.idBiglietto = idBiglietto;
+//    }
+//
+//    public StatoBiglietto getStatoBiglietto() {
+//        return statoBiglietto;
+//    }
+//
+//    public void setStatoBiglietto(StatoBiglietto statoBiglietto) {
+//        this.statoBiglietto = statoBiglietto;
+//    }
+//
+//    //public PuntoEmissione getIdPuntoEmissione() {
+//       // return PuntoEmissione;
+//    //}
+//
+//    //public void setIdPuntoEmissione(PuntoEmissione idPuntoEmissione) {
+//    //}
+//
+//    public Long getIdUtente() {
+//        return idUtente;
+//    }
+//
+//    public void setIdUtente(Long idUtente) {
+//        this.idUtente = idUtente;
+//    }
+//
+//    public PuntoEmissione getPuntoEmissione(){
+//        return PuntoEmissione;
+//    }
+//
+//    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
+//        this.PuntoEmissione = puntoEmissione;
+//    }
+
 
 
 }

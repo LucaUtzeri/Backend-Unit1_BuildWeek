@@ -1,23 +1,27 @@
 package it.team3.bw.biglietto.classi;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class Tessera {
+public class Tessera{
+    @Id
+    @GeneratedValue
+    @Column (name = "id_tessera")
     private long idTessera;
-    private long idUtente;
-    private LocalDate dataEmissioneTessera = LocalDate.now();
+    @OneToOne
+    private Utente utente;
+    @Column (name = "data_emissione")
+    private LocalDate dataEmissioneTessera;
+    @Column(name = "data_scadenza")
     private LocalDate dataScadenzaTessera;
-    private boolean stato;
+//    private boolean stato;
 
-    public Tessera() {
-    }
+    public Tessera(){}
 
-    public Tessera(long idTessera, long idUtente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera, boolean stato) {
+    public Tessera(long idTessera, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera) {
         this.idTessera = idTessera;
-        this.idUtente = idUtente;
         this.dataEmissioneTessera = dataEmissioneTessera;
         this.dataScadenzaTessera = dataScadenzaTessera;
-        this.stato = stato;
     }
 
     public long getIdTessera() {
@@ -26,14 +30,6 @@ public class Tessera {
 
     public void setIdTessera(long idTessera) {
         this.idTessera = idTessera;
-    }
-
-    public long getIdUtente() {
-        return idUtente;
-    }
-
-    public void setIdUtente(long idUtente) {
-        this.idUtente = idUtente;
     }
 
     public LocalDate getDataEmissioneTessera() {
@@ -50,13 +46,5 @@ public class Tessera {
 
     public void setDataScadenzaTessera(LocalDate dataScadenzaTessera) {
         this.dataScadenzaTessera = dataScadenzaTessera;
-    }
-
-    public boolean isStato() {
-        return stato;
-    }
-
-    public void setStato(boolean stato) {
-        this.stato = stato;
     }
 }
