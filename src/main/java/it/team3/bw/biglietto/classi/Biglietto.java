@@ -18,20 +18,19 @@ public class Biglietto extends Documento {
     private StatoBiglietto statoBiglietto;
 
     @OneToOne
-    @JoinColumn(name = "id_punto_emissione")
+    @Column (name = "punto_emissione")
     private PuntoEmissione PuntoEmissione;
 
     @OneToOne
-    @JoinColumn(name = "id_utente")
-    private long idUtente;
+    private Utente utente;
 
     public Biglietto(){}
 
-    public Biglietto(LocalDate dataEmissione, long idEmissione, long idBiglietto, LocalDate dataAquisto, StatoBiglietto statoBiglietto, it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione, long idUtente) {
+    public Biglietto(LocalDate dataEmissione, long idEmissione, long idBiglietto, LocalDate dataAquisto, StatoBiglietto statoBiglietto,PuntoEmissione puntoEmissione, Utente utente) {
         this.dataAquisto = dataAquisto;
         this.statoBiglietto = statoBiglietto;
         PuntoEmissione = puntoEmissione;
-        this.idUtente = idUtente;
+        this.utente = utente;
     }
 
     public LocalDate getDataAquisto() {
@@ -58,13 +57,14 @@ public class Biglietto extends Documento {
         PuntoEmissione = puntoEmissione;
     }
 
-    public long getIdUtente() {
-        return idUtente;
+    public Utente getUtente() {
+        return utente;
     }
 
-    public void setIdUtente(long idUtente) {
-        this.idUtente = idUtente;
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
+
     //    public enum StatoBiglietto {
 //        ATTIVO,
 //        VIDIMATO
