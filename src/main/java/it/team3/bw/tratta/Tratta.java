@@ -11,6 +11,9 @@ public class Tratta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_tratta")
     private long idTratta;
+    @ManyToOne
+    @JoinColumn (name = "id_mezzo")
+    private long idMezzo;
     @Column
     private String puntoPartenza;
     @Column

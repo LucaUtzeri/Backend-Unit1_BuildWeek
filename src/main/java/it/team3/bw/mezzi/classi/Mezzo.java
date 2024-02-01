@@ -31,6 +31,9 @@ public class Mezzo {
         this.tipologiaMezzo = tipologiaMezzo;
     }
 
+    public Mezzo(long idMezzo, int capacita, boolean attivo, String tipologiaMezzo) {
+    }
+
     public long getIdMezzo() {
         return idMezzo;
     }
