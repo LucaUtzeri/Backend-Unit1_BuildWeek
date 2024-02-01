@@ -12,7 +12,7 @@ import java.util.List;
 public class PuntoEmissioneDAO {
     private EntityManager entityManager;
     public PuntoEmissioneDAO(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("puntoEmissione");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("be-buildweek1");
         EntityManager em = emf.createEntityManager();
     }
 
@@ -39,12 +39,12 @@ public class PuntoEmissioneDAO {
         entityManager.getTransaction().commit();
     }
 
-    public PuntoEmissione getPuntoEmissione(Long id){
+    public PuntoEmissione getPuntoEmissione(long id){
         return entityManager.find(PuntoEmissione.class, id);
     }
 
     public List<PuntoEmissione>getAllPuntoEmissione() {
-        return entityManager.createQuery("SELECT p FROM PuntoEmissione p", PuntoEmissione.class).getResultList();
+        return entityManager.createQuery("SELECT p FROM punto_emissione p", PuntoEmissione.class).getResultList();
     }
 
     public void updatePuntoEmissione(PuntoEmissione puntoEmissione) {
