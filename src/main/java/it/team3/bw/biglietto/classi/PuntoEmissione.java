@@ -26,7 +26,7 @@ public class PuntoEmissione {
     public PuntoEmissione( Tipologia tipologia, boolean attivo) {
         this.tipologia = tipologia;
         this.attivo = attivo;
-        this.BigliettiRimasti = bigliettiRimasti;
+        this.BigliettiRimasti = 10;
     }
 
     public PuntoEmissione(boolean attivo) {

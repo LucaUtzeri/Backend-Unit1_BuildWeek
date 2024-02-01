@@ -18,6 +18,7 @@ public abstract class Documento {
     }
 
     public void setIdDocumento(int idDocumento) {
+
         this.idDocumento = idDocumento;
     }
 
