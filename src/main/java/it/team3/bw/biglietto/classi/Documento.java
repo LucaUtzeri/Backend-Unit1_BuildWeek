@@ -16,7 +16,6 @@ public abstract class Documento {
     @Column
     private LocalDate scadenza;
     @OneToOne
-    @Column (name = "punto_emissione")
     private PuntoEmissione puntoEmissione;
 
     public  Documento(){}

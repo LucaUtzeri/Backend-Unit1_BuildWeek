@@ -4,7 +4,9 @@ import it.team3.bw.biglietto.enums.TipologiaAbbonamento;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity
+@Inheritance (strategy = InheritanceType.JOINED)
+@Table (name = "abbonamenti")
 public class Abbonamento extends Documento {
     @Id
     @GeneratedValue
@@ -26,14 +28,14 @@ public class Abbonamento extends Documento {
 
     public Abbonamento(){}
 
-    public Abbonamento(long idDocumento, LocalDate dataEmissione, long idEmissione, long idAbbonamento, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, Utente utente) {
-        super(idDocumento, dataEmissione, idEmissione);
-        this.idAbbonamento = idAbbonamento;
+    public Abbonamento(LocalDate dataEmissione, LocalDate scadenza, PuntoEmissione puntoEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, Utente utente, int id_PuntoEmissione) {
+        super(dataEmissione, scadenza, puntoEmissione);
         this.tessera = tessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;
         this.dataInizioAbbonamento = dataInizioAbbonamento;
         this.dataScadenza = dataScadenza;
         this.utente = utente;
+        this.id_PuntoEmissione = id_PuntoEmissione;
     }
 
     public long getIdAbbonamento() {
@@ -84,6 +86,14 @@ public class Abbonamento extends Documento {
         this.utente = utente;
     }
 
+    public int getId_PuntoEmissione() {
+        return id_PuntoEmissione;
+    }
+
+    public void setId_PuntoEmissione(int id_PuntoEmissione) {
+        this.id_PuntoEmissione = id_PuntoEmissione;
+    }
+
     @Override
     public String toString() {
         return "Abbonamento{" +
@@ -93,6 +103,7 @@ public class Abbonamento extends Documento {
                 ", dataInizioAbbonamento=" + dataInizioAbbonamento +
                 ", dataScadenza=" + dataScadenza +
                 ", utente=" + utente +
+                ", id_PuntoEmissione=" + id_PuntoEmissione +
                 '}';
     }
 }

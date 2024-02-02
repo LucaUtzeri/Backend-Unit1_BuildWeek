@@ -5,9 +5,7 @@ import java.time.LocalDate;
 @Entity
 @Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @Table (name = "tessere")
-public class Tessera{
-    @Id
-    @GeneratedValue
+public class Tessera extends Documento{
     @Column (name = "id_tessera")
     private long idTessera;
     @OneToOne
@@ -20,7 +18,9 @@ public class Tessera{
 
     public Tessera(){}
 
-    public Tessera(LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera) {
+    public Tessera(LocalDate dataEmissione, LocalDate scadenza, PuntoEmissione puntoEmissione, Utente utente, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera) {
+        super(dataEmissione, scadenza, puntoEmissione);
+        this.utente = utente;
         this.dataEmissioneTessera = dataEmissioneTessera;
         this.dataScadenzaTessera = dataScadenzaTessera;
     }
@@ -31,6 +31,14 @@ public class Tessera{
 
     public void setIdTessera(long idTessera) {
         this.idTessera = idTessera;
+    }
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
 
     public LocalDate getDataEmissioneTessera() {
@@ -47,5 +55,15 @@ public class Tessera{
 
     public void setDataScadenzaTessera(LocalDate dataScadenzaTessera) {
         this.dataScadenzaTessera = dataScadenzaTessera;
+    }
+
+    @Override
+    public String toString() {
+        return "Tessera{" +
+                "idTessera=" + idTessera +
+                ", utente=" + utente +
+                ", dataEmissioneTessera=" + dataEmissioneTessera +
+                ", dataScadenzaTessera=" + dataScadenzaTessera +
+                '}';
     }
 }

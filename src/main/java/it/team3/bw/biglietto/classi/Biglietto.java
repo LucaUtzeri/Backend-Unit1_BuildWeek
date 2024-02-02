@@ -10,8 +10,6 @@ import java.time.LocalDate;
 @Table (name = "biglietti")
 public class Biglietto extends Documento {
 
-    @Id
-    @GeneratedValue
     @Column (name = "id_biglietto")
     private long idBiglietto;
     @Column
@@ -28,8 +26,7 @@ public class Biglietto extends Documento {
 
     public Biglietto(){}
 
-    public Biglietto(long idDocumento, LocalDate dataEmissione, long idEmissione, LocalDate dataAcquisto, StatoBiglietto statoBiglietto, it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione, Utente utente) {
-        super(idDocumento, dataEmissione, idEmissione);
+    public Biglietto(LocalDate dataEmissione, long idEmissione, LocalDate dataAcquisto, StatoBiglietto statoBiglietto, it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione, Utente utente) {
         this.dataAcquisto = dataAcquisto;
         this.statoBiglietto = statoBiglietto;
         PuntoEmissione = puntoEmissione;

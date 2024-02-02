@@ -13,7 +13,6 @@ public class Mezzo {
     @Column (name = "id_mezzo")
     private long idMezzo;
     @ManyToOne
-    @JoinColumn (name = "id_biglietto")
     private Biglietto biglietto;
     @Column
     private int capacita;
