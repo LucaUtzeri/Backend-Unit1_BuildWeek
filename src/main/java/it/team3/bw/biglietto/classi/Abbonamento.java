@@ -9,22 +9,23 @@ import java.time.LocalDate;
 public class Abbonamento extends Documento {
 
     @OneToOne
-    @JoinColumn (name = "id_tessera")
+    @JoinColumn(name = "id_tessera")
     private Tessera tessera;
-    @Column (name = "tipo_abbonamento")
+    @Column(name = "tipo_abbonamento")
     private TipologiaAbbonamento tipologiaAbbonamento;
-    @Column (name = "inizio_abbonamento")
+    @Column(name = "inizio_abbonamento")
     private LocalDate dataInizioAbbonamento;
-    @Column (name = "scadenza")
+    @Column(name = "scadenza")
     private LocalDate dataScadenza;
     @ManyToOne
     @JoinColumn(name = "id_punto_emissione")
     private PuntoEmissione puntoEmissione;
 
-    public Abbonamento(){}
+    public Abbonamento() {
+    }
 
-    public Abbonamento( LocalDate dataEmissione, long idEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, PuntoEmissione puntoEmissione) {
-        super(dataEmissione, idEmissione);
+    public Abbonamento(LocalDate dataEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, PuntoEmissione puntoEmissione) {
+        super(dataEmissione);
         this.tessera = tessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;
         this.dataInizioAbbonamento = dataInizioAbbonamento;

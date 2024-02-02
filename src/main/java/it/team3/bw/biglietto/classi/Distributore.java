@@ -1,7 +1,6 @@
 package it.team3.bw.biglietto.classi;
 
 import it.team3.bw.biglietto.enums.StatoDistributore;
-import it.team3.bw.biglietto.enums.Tipologia;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,8 +13,8 @@ public class Distributore extends PuntoEmissione {
     private StatoDistributore statoDistributore;
     public Distributore(){}
 
-    public Distributore(String nome, Tipologia tipologia, boolean attivo, StatoDistributore statoDistributore) {
-        super(nome, tipologia, attivo);
+    public Distributore(String nome, boolean attivo, StatoDistributore statoDistributore) {
+        super(nome,  attivo);
         this.statoDistributore = statoDistributore;
     }
 

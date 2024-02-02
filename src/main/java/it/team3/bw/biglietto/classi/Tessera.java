@@ -23,10 +23,10 @@ public class Tessera{
 
     public Tessera(){}
 
-    public Tessera(long idTessera, LocalDate dataEmissioneTessera) {
-        this.idTessera = idTessera;
+    public Tessera(LocalDate dataEmissioneTessera, Utente utente) {
         this.dataEmissioneTessera = dataEmissioneTessera;
         this.dataScadenzaTessera = dataEmissioneTessera.plusYears(1);
+        this.utente = utente;
     }
 
     public long getIdTessera() {

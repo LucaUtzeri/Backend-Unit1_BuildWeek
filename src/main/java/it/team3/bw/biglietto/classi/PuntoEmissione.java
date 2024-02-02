@@ -1,7 +1,5 @@
 package it.team3.bw.biglietto.classi;
 
-import it.team3.bw.biglietto.enums.Tipologia;
-
 import javax.persistence.*;
 
 @Entity
@@ -15,17 +13,14 @@ public class PuntoEmissione {
     @Column
     private String nome;
     @Column
-    private Tipologia tipologia;
-    @Column
     private boolean attivo;
     @Column
     private int BigliettiRimasti;
 
     public PuntoEmissione(){}
 
-    public PuntoEmissione(String nome, Tipologia tipologia, boolean attivo) {
+    public PuntoEmissione(String nome, boolean attivo) {
         this.nome = nome;
-        this.tipologia = tipologia;
         this.attivo = attivo;
         BigliettiRimasti = 10;
     }
@@ -36,14 +31,6 @@ public class PuntoEmissione {
 
     public void setIdPuntoEmissione(Long idPuntoEmissione) {
         this.idPuntoEmissione = idPuntoEmissione;
-    }
-
-    public Tipologia getTipologia() {
-        return tipologia;
-    }
-
-    public void setTipologia(Tipologia tipologia) {
-        this.tipologia = tipologia;
     }
 
     public boolean isAttivo() {
@@ -67,7 +54,6 @@ public class PuntoEmissione {
         return "Utente{" +
                 "idPuntoEmissione=" + idPuntoEmissione +
                 ", nome='" + nome + '\'' +
-                ", tipologia='" + tipologia + '\'' +
                 ", attivo='" + attivo + '\'' +
                 ", BigliettiRimasti='" + BigliettiRimasti + '\'' +
                 '}';

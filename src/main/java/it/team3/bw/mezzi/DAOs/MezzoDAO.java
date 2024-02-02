@@ -27,10 +27,10 @@ public class MezzoDAO {
 //        return query.getSingleResult();
 //    }
 
-    public Mezzo findMezzo(Long id){return entityManager.find(Mezzo.class, id);}
+    public Mezzo findMezzoById(Long id){return entityManager.find(Mezzo.class, id);}
 
     public void cancellaMezzo(Long id){
-        Mezzo mezzo = this.findMezzo(id);
+        Mezzo mezzo = this.findMezzoById(id);
         if (mezzo != null){
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();

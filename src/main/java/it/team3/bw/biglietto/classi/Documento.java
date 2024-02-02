@@ -4,20 +4,19 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table (name = "documento")
+@Table(name = "documento")
 public abstract class Documento {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idDocumento;
     private LocalDate dataEmissione;
-    private long idEmissione;
 
-    public  Documento(){}
+    public Documento() {
+    }
 
-    public Documento( LocalDate dataEmissione, long idEmissione) {
+    public Documento(LocalDate dataEmissione) {
         this.dataEmissione = dataEmissione;
-        this.idEmissione = idEmissione;
     }
 
     public long getIdDocumento() {
@@ -38,20 +37,12 @@ public abstract class Documento {
         this.dataEmissione = dataEmissione;
     }
 
-    public long getIdEmissione() {
-        return idEmissione;
-    }
-
-    public void setIdEmissione(long idEmissione) {
-        this.idEmissione = idEmissione;
-    }
 
     @Override
     public String toString() {
         return "Documento{" +
                 "idDocumento=" + idDocumento +
                 ", dataEmissione=" + dataEmissione +
-                ", idEmissione=" + idEmissione +
                 '}';
     }
 }

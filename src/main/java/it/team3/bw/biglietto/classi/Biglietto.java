@@ -19,10 +19,11 @@ public class Biglietto extends Documento {
     @OneToOne
     private Utente utente;
 
-    public Biglietto(){}
+    public Biglietto() {
+    }
 
-    public Biglietto(LocalDate dataEmissione, long idEmissione, StatoBiglietto statoBiglietto, PuntoEmissione puntoEmissione, Utente utente) {
-        super( dataEmissione, idEmissione);
+    public Biglietto(LocalDate dataEmissione, StatoBiglietto statoBiglietto, PuntoEmissione puntoEmissione, Utente utente) {
+        super(dataEmissione);
         this.statoBiglietto = statoBiglietto;
         PuntoEmissione = puntoEmissione;
         this.utente = utente;

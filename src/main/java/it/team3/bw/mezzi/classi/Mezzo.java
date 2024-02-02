@@ -30,4 +30,43 @@ public abstract class Mezzo {
         this.attivo = true;
     }
 
+    public long getIdMezzo() {
+        return idMezzo;
+    }
+
+    public void setIdMezzo(long idMezzo) {
+        this.idMezzo = idMezzo;
+    }
+
+    public Set<Biglietto> getBiglietti() {
+        return biglietti;
+    }
+
+    public void setBiglietti(Set<Biglietto> biglietti) {
+        this.biglietti = biglietti;
+    }
+
+    public int getCapacita() {
+        return capacita;
+    }
+
+    public void setCapacita(int capacita) {
+        this.capacita = capacita;
+    }
+
+    public boolean isAttivo() {
+        return attivo;
+    }
+
+    public void setAttivo(boolean attivo) {
+        this.attivo = attivo;
+    }
+
+    public Tratta getTratta() {
+        return tratta;
+    }
+
+    public void setTratta(Tratta tratta) {
+        this.tratta = tratta;
+    }
 }
