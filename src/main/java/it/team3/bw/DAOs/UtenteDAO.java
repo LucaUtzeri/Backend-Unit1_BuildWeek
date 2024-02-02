@@ -9,7 +9,9 @@ import javax.persistence.TypedQuery;
 public class UtenteDAO {
 
     private final EntityManager em;
-    public UtenteDAO(EntityManager em){this.em = em;}
+    public UtenteDAO(EntityManager em){
+        this.em = em;
+    }
 
     public void saveUtente(Utente utente){
         EntityTransaction transaction = em.getTransaction();
@@ -20,8 +22,10 @@ public class UtenteDAO {
     }
 
     public Utente findUtenteByName(String nomeUtente){
+
         TypedQuery<Utente> query = em.createNamedQuery("SELECT u FROM utenti u WHERE u.idUtente = :nome_utente", Utente.class);
         query.setParameter("idUtente",nomeUtente);
+
         return query.getSingleResult();
     }
 
