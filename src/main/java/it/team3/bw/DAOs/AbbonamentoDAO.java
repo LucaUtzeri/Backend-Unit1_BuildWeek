@@ -17,11 +17,8 @@ public class AbbonamentoDAO {
     public void save(Abbonamento abbonamento) {
         EntityTransaction t = em.getTransaction();
         t.begin();
-
         em.persist(abbonamento);
-
         t.commit();
-
         System.out.println("Elemento salvato correttamente");
 
     }
@@ -31,7 +28,7 @@ public class AbbonamentoDAO {
     }
 
     public List<Abbonamento> ricercaAbbonamentiPerData(LocalDate data) {
-        return em.createQuery("SELECT p FROM Abbonamenti p WHERE p.dataEmissione =:dataemissione", Abbonamento.class)
-                .setParameter("dataemissione", data).getResultList();
+        return em.createQuery("SELECT p FROM Abbonamenti p WHERE p.dataEmissione =:data_emissione", Abbonamento.class)
+                .setParameter("data_emissione", data).getResultList();
     }
 }

@@ -27,7 +27,7 @@ public class BigliettoDAO {
         entityManager.getTransaction().commit();
     }
 
-    public Biglietto getBigliettoById(Long id){
+    public Biglietto getBigliettoById(long id){
         return entityManager.find(Biglietto.class, id);
     }
 

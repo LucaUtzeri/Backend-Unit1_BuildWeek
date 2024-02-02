@@ -5,20 +5,22 @@ import it.team3.bw.biglietto.enums.StatoBiglietto;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+@Table (name = "biglietti")
 public class Biglietto extends Documento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column (name = "id_biglietto")
     private long idBiglietto;
     @Column
-    private LocalDate dataAquisto;
+    private LocalDate dataAcquisto;
 
     @Enumerated(EnumType.STRING)
     private StatoBiglietto statoBiglietto;
 
     @OneToOne
-    @Column (name = "punto_emissione")
     private PuntoEmissione PuntoEmissione;
 
     @OneToOne
@@ -26,19 +28,20 @@ public class Biglietto extends Documento {
 
     public Biglietto(){}
 
-    public Biglietto(LocalDate dataEmissione, long idEmissione, long idBiglietto, LocalDate dataAquisto, StatoBiglietto statoBiglietto,PuntoEmissione puntoEmissione, Utente utente) {
-        this.dataAquisto = dataAquisto;
+    public Biglietto(long idDocumento, LocalDate dataEmissione, long idEmissione, LocalDate dataAcquisto, StatoBiglietto statoBiglietto, it.team3.bw.biglietto.classi.PuntoEmissione puntoEmissione, Utente utente) {
+        super(idDocumento, dataEmissione, idEmissione);
+        this.dataAcquisto = dataAcquisto;
         this.statoBiglietto = statoBiglietto;
         PuntoEmissione = puntoEmissione;
         this.utente = utente;
     }
 
-    public LocalDate getDataAquisto() {
-        return dataAquisto;
+    public LocalDate getDataAcquisto() {
+        return dataAcquisto;
     }
 
-    public void setDataAquisto(LocalDate dataAquisto) {
-        this.dataAquisto = dataAquisto;
+    public void setDataAcquisto(LocalDate dataAcquisto) {
+        this.dataAcquisto = dataAcquisto;
     }
 
     public StatoBiglietto getStatoBiglietto() {
@@ -65,63 +68,14 @@ public class Biglietto extends Documento {
         this.utente = utente;
     }
 
-    //    public enum StatoBiglietto {
-//        ATTIVO,
-//        VIDIMATO
-//
-//    }
-
-
-//    public Biglietto(long idBiglietto, StatoBiglietto statoBiglietto, PuntoEmissione PuntoEmissione, long idUtente) {
-//
-//    public Biglietto(long idDocumento, int dataEmissione, int idEmissione, int idBiglietto, StatoBiglietto statoBiglietto, int idPuntoEmissione, int idUtente) {
-//        super(idDocumento, dataEmissione, idEmissione);
-//
-//        this.idBiglietto = idBiglietto;
-//        this.statoBiglietto = statoBiglietto;
-//        this.PuntoEmissione = PuntoEmissione;
-//        this.idUtente = idUtente;
-//    }
-//
-//    public Long getIdBiglietto() {
-//        return idBiglietto;
-//    }
-//
-//    public void setIdBiglietto(Long idBiglietto) {
-//        this.idBiglietto = idBiglietto;
-//    }
-//
-//    public StatoBiglietto getStatoBiglietto() {
-//        return statoBiglietto;
-//    }
-//
-//    public void setStatoBiglietto(StatoBiglietto statoBiglietto) {
-//        this.statoBiglietto = statoBiglietto;
-//    }
-//
-//    //public PuntoEmissione getIdPuntoEmissione() {
-//       // return PuntoEmissione;
-//    //}
-//
-//    //public void setIdPuntoEmissione(PuntoEmissione idPuntoEmissione) {
-//    //}
-//
-//    public Long getIdUtente() {
-//        return idUtente;
-//    }
-//
-//    public void setIdUtente(Long idUtente) {
-//        this.idUtente = idUtente;
-//    }
-//
-//    public PuntoEmissione getPuntoEmissione(){
-//        return PuntoEmissione;
-//    }
-//
-//    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
-//        this.PuntoEmissione = puntoEmissione;
-//    }
-
-
-
+    @Override
+    public String toString() {
+        return "Biglietto{" +
+                "idBiglietto=" + idBiglietto +
+                ", dataAcquisto=" + dataAcquisto +
+                ", statoBiglietto=" + statoBiglietto +
+                ", PuntoEmissione=" + PuntoEmissione +
+                ", utente=" + utente +
+                '}';
+    }
 }

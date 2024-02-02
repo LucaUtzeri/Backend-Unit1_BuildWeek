@@ -21,18 +21,6 @@ public class PuntoEmissioneDAO {
        entityManager.close();
     }
 
-//    public PuntoEmissione findPe(Tipologia tipologia){
-//        return em.find(PuntoEmissione.class,tipologia);
-//    }
-//    public void savePe(PuntoEmissione puntoEmissione){
-//        EntityTransaction transaction = em.getTransaction();
-//        transaction.begin();
-//        em.persist(puntoEmissione);
-//        transaction.commit();
-//        System.out.println(puntoEmissione.getTipologia() + " salvato");
-//    }
-
-
     public void addPuntoEmissione(PuntoEmissione puntoEmissione){
         entityManager.getTransaction().begin();
         entityManager.persist(puntoEmissione);

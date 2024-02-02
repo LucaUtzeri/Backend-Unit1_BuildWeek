@@ -1,27 +1,37 @@
 package it.team3.bw.biglietto.classi;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table (name = "documenti")
+@Inheritance (strategy = InheritanceType.JOINED)
 public abstract class Documento {
+    @Id
+    @GeneratedValue
+    @Column (name ="id_documento")
     private long idDocumento;
+    @Column (name = "data_emissione")
     private LocalDate dataEmissione;
-    private long idEmissione;
+    @Column
+    private LocalDate scadenza;
+    @OneToOne
+    @Column (name = "punto_emissione")
+    private PuntoEmissione puntoEmissione;
 
     public  Documento(){}
 
-    public Documento(long idDocumento, LocalDate dataEmissione, long idEmissione) {
-        this.idDocumento = idDocumento;
+    public Documento(LocalDate dataEmissione, LocalDate scadenza, PuntoEmissione puntoEmissione) {
         this.dataEmissione = dataEmissione;
-        this.idEmissione = idEmissione;
+        this.scadenza = scadenza;
+        this.puntoEmissione = puntoEmissione;
     }
 
     public long getIdDocumento() {
         return idDocumento;
     }
 
-
     public void setIdDocumento(long idDocumento) {
-
         this.idDocumento = idDocumento;
     }
 
@@ -33,12 +43,20 @@ public abstract class Documento {
         this.dataEmissione = dataEmissione;
     }
 
-    public long getIdEmissione() {
-        return idEmissione;
+    public LocalDate getScadenza() {
+        return scadenza;
     }
 
-    public void setIdEmissione(long idEmissione) {
-        this.idEmissione = idEmissione;
+    public void setScadenza(LocalDate scadenza) {
+        this.scadenza = scadenza;
+    }
+
+    public PuntoEmissione getPuntoEmissione() {
+        return puntoEmissione;
+    }
+
+    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
+        this.puntoEmissione = puntoEmissione;
     }
 
     @Override
@@ -46,7 +64,8 @@ public abstract class Documento {
         return "Documento{" +
                 "idDocumento=" + idDocumento +
                 ", dataEmissione=" + dataEmissione +
-                ", idEmissione=" + idEmissione +
+                ", scadenza=" + scadenza +
+                ", puntoEmissione=" + puntoEmissione +
                 '}';
     }
 }

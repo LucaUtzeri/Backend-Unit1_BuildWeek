@@ -2,7 +2,9 @@ package it.team3.bw.biglietto.classi;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+@Table (name = "tessere")
 public class Tessera{
     @Id
     @GeneratedValue
@@ -18,8 +20,7 @@ public class Tessera{
 
     public Tessera(){}
 
-    public Tessera(long idTessera, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera) {
-        this.idTessera = idTessera;
+    public Tessera(LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera) {
         this.dataEmissioneTessera = dataEmissioneTessera;
         this.dataScadenzaTessera = dataScadenzaTessera;
     }
