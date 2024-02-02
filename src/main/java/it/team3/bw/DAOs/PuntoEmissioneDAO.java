@@ -44,7 +44,7 @@ public class PuntoEmissioneDAO {
     }
 
     public List<PuntoEmissione>getAllPuntoEmissione() {
-        return entityManager.createQuery("SELECT p FROM punto_emissione p", PuntoEmissione.class).getResultList();
+        return entityManager.createQuery("SELECT p FROM idPuntoEmissione p", PuntoEmissione.class).getResultList();
     }
 
     public void updatePuntoEmissione(PuntoEmissione puntoEmissione) {

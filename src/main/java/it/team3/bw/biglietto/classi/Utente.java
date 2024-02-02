@@ -1,7 +1,6 @@
 package it.team3.bw.biglietto.classi;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED)
@@ -18,7 +17,8 @@ public class Utente {
     private String cognomeUtente;
     @Column
     private String documento;
-
+@OneToOne(mappedBy = "utente")
+private Tessera tessera;
 
     public Utente(String nomeUtente, String cognomeUtente, String documento) {
         this.nomeUtente = nomeUtente;

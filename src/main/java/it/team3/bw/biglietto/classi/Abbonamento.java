@@ -5,11 +5,9 @@ import it.team3.bw.biglietto.enums.TipologiaAbbonamento;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Abbonamento extends Documento {
-    @Id
-    @GeneratedValue
-    @Column (name = "id_abbonamento")
-    private long idAbbonamento;
+
     @OneToOne
     @JoinColumn (name = "id_tessera")
     private Tessera tessera;
@@ -19,29 +17,19 @@ public class Abbonamento extends Documento {
     private LocalDate dataInizioAbbonamento;
     @Column (name = "scadenza")
     private LocalDate dataScadenza;
-    @OneToOne
-    @JoinColumn(name = "id_utente")
-    private Utente utente;
-    private int id_PuntoEmissione;
+    @ManyToOne
+    @JoinColumn(name = "id_punto_emissione")
+    private PuntoEmissione puntoEmissione;
 
     public Abbonamento(){}
 
-    public Abbonamento(long idDocumento, LocalDate dataEmissione, long idEmissione, long idAbbonamento, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, Utente utente) {
-        super(idDocumento, dataEmissione, idEmissione);
-        this.idAbbonamento = idAbbonamento;
+    public Abbonamento( LocalDate dataEmissione, long idEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, PuntoEmissione puntoEmissione) {
+        super(dataEmissione, idEmissione);
         this.tessera = tessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;
         this.dataInizioAbbonamento = dataInizioAbbonamento;
         this.dataScadenza = dataScadenza;
-        this.utente = utente;
-    }
-
-    public long getIdAbbonamento() {
-        return idAbbonamento;
-    }
-
-    public void setIdAbbonamento(long idAbbonamento) {
-        this.idAbbonamento = idAbbonamento;
+        this.puntoEmissione = puntoEmissione;
     }
 
     public Tessera getTessera() {
@@ -76,23 +64,11 @@ public class Abbonamento extends Documento {
         this.dataScadenza = dataScadenza;
     }
 
-    public Utente getUtente() {
-        return utente;
+    public PuntoEmissione getPuntoEmissione() {
+        return puntoEmissione;
     }
 
-    public void setUtente(Utente utente) {
-        this.utente = utente;
-    }
-
-    @Override
-    public String toString() {
-        return "Abbonamento{" +
-                "idAbbonamento=" + idAbbonamento +
-                ", tessera=" + tessera +
-                ", tipologiaAbbonamento=" + tipologiaAbbonamento +
-                ", dataInizioAbbonamento=" + dataInizioAbbonamento +
-                ", dataScadenza=" + dataScadenza +
-                ", utente=" + utente +
-                '}';
+    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
+        this.puntoEmissione = puntoEmissione;
     }
 }

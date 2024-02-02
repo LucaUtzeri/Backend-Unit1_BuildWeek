@@ -23,13 +23,11 @@ public class PuntoEmissione {
 
     public PuntoEmissione(){}
 
-    public PuntoEmissione( Tipologia tipologia, boolean attivo) {
+    public PuntoEmissione(String nome, Tipologia tipologia, boolean attivo) {
+        this.nome = nome;
         this.tipologia = tipologia;
         this.attivo = attivo;
-        this.BigliettiRimasti = 10;
-    }
-
-    public PuntoEmissione(boolean attivo) {
+        BigliettiRimasti = 10;
     }
 
     public Long getIdPuntoEmissione() {
@@ -62,5 +60,16 @@ public class PuntoEmissione {
 
     public void setBigliettiRimasti(int bigliettiRimasti){
         this.BigliettiRimasti = bigliettiRimasti;
+    }
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "idPuntoEmissione=" + idPuntoEmissione +
+                ", nome='" + nome + '\'' +
+                ", tipologia='" + tipologia + '\'' +
+                ", attivo='" + attivo + '\'' +
+                ", BigliettiRimasti='" + BigliettiRimasti + '\'' +
+                '}';
     }
 }

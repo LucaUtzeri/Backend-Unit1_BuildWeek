@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 public class Tram extends Mezzo {
     public Tram(){}
 
-    public Tram(long idMezzo, int capacita, boolean attivo, String tipologiaMezzo) {
-        super(idMezzo, capacita, attivo, tipologiaMezzo);
+    public Tram(int capacita) {
+        super(130);
     }
 }

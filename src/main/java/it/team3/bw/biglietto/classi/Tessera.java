@@ -3,25 +3,30 @@ package it.team3.bw.biglietto.classi;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Tessera{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column (name = "id_tessera")
     private long idTessera;
     @OneToOne
+    @JoinColumn(name = "id_utente")
     private Utente utente;
     @Column (name = "data_emissione")
     private LocalDate dataEmissioneTessera;
     @Column(name = "data_scadenza")
     private LocalDate dataScadenzaTessera;
+    @OneToOne (mappedBy = "tessera")
+    private Abbonamento abbonamento;
+
 //    private boolean stato;
 
     public Tessera(){}
 
-    public Tessera(long idTessera, LocalDate dataEmissioneTessera, LocalDate dataScadenzaTessera) {
+    public Tessera(long idTessera, LocalDate dataEmissioneTessera) {
         this.idTessera = idTessera;
         this.dataEmissioneTessera = dataEmissioneTessera;
-        this.dataScadenzaTessera = dataScadenzaTessera;
+        this.dataScadenzaTessera = dataEmissioneTessera.plusYears(1);
     }
 
     public long getIdTessera() {

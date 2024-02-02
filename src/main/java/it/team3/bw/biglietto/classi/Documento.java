@@ -1,16 +1,21 @@
 package it.team3.bw.biglietto.classi;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table (name = "documento")
 public abstract class Documento {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.SEQUENCE)
     private long idDocumento;
     private LocalDate dataEmissione;
     private long idEmissione;
 
     public  Documento(){}
 
-    public Documento(long idDocumento, LocalDate dataEmissione, long idEmissione) {
-        this.idDocumento = idDocumento;
+    public Documento( LocalDate dataEmissione, long idEmissione) {
         this.dataEmissione = dataEmissione;
         this.idEmissione = idEmissione;
     }

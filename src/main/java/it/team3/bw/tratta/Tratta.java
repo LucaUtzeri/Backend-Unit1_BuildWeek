@@ -1,19 +1,20 @@
 package it.team3.bw.tratta;
 
+import it.team3.bw.mezzi.classi.Mezzo;
+
 import javax.persistence.*;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Table (name = "tratta")
 public class Tratta {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column (name = "id_tratta")
     private long idTratta;
-    @ManyToOne
+    @OneToOne
     @JoinColumn (name = "id_mezzo")
-    private long idMezzo;
+    private Mezzo mezzo;
     @Column
     private String puntoPartenza;
     @Column

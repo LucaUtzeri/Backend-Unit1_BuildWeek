@@ -20,8 +20,8 @@ public class UtenteDAO {
     }
 
     public Utente findUtenteByName(String nomeUtente){
-        TypedQuery<Utente> query = em.createNamedQuery("SELECT u FROM utenti u WHERE u.nome_utente = :nome_utente", Utente.class);
-        query.setParameter("nome_utente",nomeUtente);
+        TypedQuery<Utente> query = em.createNamedQuery("SELECT u FROM utenti u WHERE u.idUtente = :nome_utente", Utente.class);
+        query.setParameter("idUtente",nomeUtente);
         return query.getSingleResult();
     }
 

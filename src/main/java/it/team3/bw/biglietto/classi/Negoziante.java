@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 
 @Entity
 public class Negoziante extends PuntoEmissione{
+
     public Negoziante(){}
 
-    public Negoziante(String nome, boolean attivo){
-        super(Tipologia.valueOf(nome), attivo);
+    public Negoziante(String nome, Tipologia tipologia, boolean attivo) {
+        super(nome, tipologia, attivo);
     }
 }
