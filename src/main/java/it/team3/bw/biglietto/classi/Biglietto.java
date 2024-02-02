@@ -20,10 +20,11 @@ public class Biglietto extends Documento {
     public Biglietto() {
     }
 
-    public Biglietto(LocalDate dataEmissione, StatoBiglietto statoBiglietto, Utente utente) {
+    public Biglietto(LocalDate dataEmissione, StatoBiglietto statoBiglietto,PuntoEmissione puntoEmissione, Utente utente) {
         super(dataEmissione);
         this.statoBiglietto = statoBiglietto;
         this.utente = utente;
+        this.puntoEmissione= puntoEmissione;
     }
 
 

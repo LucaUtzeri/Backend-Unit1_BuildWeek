@@ -24,12 +24,11 @@ public class Abbonamento extends Documento {
     public Abbonamento() {
     }
 
-    public Abbonamento(LocalDate dataEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, PuntoEmissione puntoEmissione) {
+    public Abbonamento(LocalDate dataEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, PuntoEmissione puntoEmissione) {
         super(dataEmissione);
         this.tessera = tessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;
         this.dataInizioAbbonamento = dataInizioAbbonamento;
-        this.dataScadenza = dataScadenza;
         this.puntoEmissione = puntoEmissione;
     }
 
