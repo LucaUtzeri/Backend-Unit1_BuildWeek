@@ -1,14 +1,15 @@
 package it.team3.bw.biglietto.classi;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Inheritance (strategy = InheritanceType.JOINED)
-@Table (name = "punto_emissione")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "punto_emissione")
 public class PuntoEmissione {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "id_punto_emissione")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_punto_emissione")
     private Long idPuntoEmissione;
     @Column
     private String nome;
@@ -17,7 +18,11 @@ public class PuntoEmissione {
     @Column
     private int BigliettiRimasti;
 
-    public PuntoEmissione(){}
+    @OneToMany(mappedBy = "puntoEmissione")
+    private Set<Documento> documento;
+
+    public PuntoEmissione() {
+    }
 
     public PuntoEmissione(String nome, boolean attivo) {
         this.nome = nome;
@@ -41,11 +46,11 @@ public class PuntoEmissione {
         this.attivo = attivo;
     }
 
-   public int getBigliettiRimasti(){
-       return BigliettiRimasti;
-   }
+    public int getBigliettiRimasti() {
+        return BigliettiRimasti;
+    }
 
-    public void setBigliettiRimasti(int bigliettiRimasti){
+    public void setBigliettiRimasti(int bigliettiRimasti) {
         this.BigliettiRimasti = bigliettiRimasti;
     }
 

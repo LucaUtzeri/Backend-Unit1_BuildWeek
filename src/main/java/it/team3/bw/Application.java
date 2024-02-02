@@ -34,7 +34,7 @@ public class Application {
         Utente utente = new Utente(faker.name().firstName(), faker.name().lastName(), faker.name().title());
         Utente utente2 = new Utente(faker.name().firstName(), faker.name().lastName(), faker.name().title());
         Tessera tessera = new Tessera(LocalDate.now(), utente);
-        Documento abbonamento = new Abbonamento(LocalDate.now(), tessera, TipologiaAbbonamento.MENSILE, LocalDate.of(2023, 5, 12), negoziante);
+        Documento abbonamento = new Abbonamento(LocalDate.now(), tessera.getIdTessera(), TipologiaAbbonamento.MENSILE, LocalDate.of(2023, 5, 12), negoziante);
         Documento biglietto = new Biglietto(LocalDate.now(), StatoBiglietto.ATTIVO, distributore, utente2);
 
         ped.savePE(distributore);

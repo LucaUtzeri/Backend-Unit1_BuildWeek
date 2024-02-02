@@ -1,21 +1,25 @@
 package it.team3.bw.DAOs;
 
 
+import it.team3.bw.biglietto.classi.Biglietto;
 import it.team3.bw.biglietto.classi.PuntoEmissione;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.time.LocalDate;
 import java.util.List;
 
 
 public class PuntoEmissioneDAO {
     private EntityManager entityManager;
-    public PuntoEmissioneDAO(EntityManager em){
+
+    public PuntoEmissioneDAO(EntityManager em) {
         this.entityManager = em;
     }
 
-    public PuntoEmissione getPEById(long id){
-        return entityManager.find(PuntoEmissione.class,id);
+    public PuntoEmissione getPEById(long id) {
+        return entityManager.find(PuntoEmissione.class, id);
     }
 
     public void savePE(PuntoEmissione pe) {
@@ -44,7 +48,7 @@ public class PuntoEmissioneDAO {
         }
     }
 
-    public List<PuntoEmissione>getAllPuntoEmissione() {
+    public List<PuntoEmissione> getAllPuntoEmissione() {
         return entityManager.createQuery("SELECT p FROM idPuntoEmissione p", PuntoEmissione.class).getResultList();
     }
 
@@ -66,5 +70,14 @@ public class PuntoEmissioneDAO {
 //            return false;
 //        }
 //    }
+
+
+    public List<Biglietto> trovaBigliettiPerData(LocalDate dataInizio, LocalDate dataFine) {
+        TypedQuery<Biglietto> lista = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine", Biglietto.class);
+        lista.setParameter("dataInizio", dataInizio);
+        lista.setParameter("dataFine", dataFine);
+        return lista.getResultList();
+    }
+
 
 }

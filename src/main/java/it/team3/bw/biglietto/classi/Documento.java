@@ -10,6 +10,8 @@ public abstract class Documento {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idDocumento;
+
+
     private LocalDate dataEmissione;
 
     public Documento() {

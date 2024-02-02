@@ -24,7 +24,7 @@ public class Abbonamento extends Documento {
     public Abbonamento() {
     }
 
-    public Abbonamento(LocalDate dataEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, PuntoEmissione puntoEmissione) {
+    public Abbonamento(LocalDate dataEmissione, Tessera tessera, TipologiaAbbonamento tipologiaAbbonamento, LocalDate dataInizioAbbonamento, LocalDate dataScadenza, PuntoEmissione puntoEmissione) {
         super(dataEmissione);
         this.tessera = tessera;
         this.tipologiaAbbonamento = tipologiaAbbonamento;

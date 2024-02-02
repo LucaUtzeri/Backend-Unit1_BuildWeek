@@ -8,13 +8,11 @@ import java.time.LocalDate;
 @Entity
 public class Biglietto extends Documento {
 
-
     @Enumerated(EnumType.STRING)
     private StatoBiglietto statoBiglietto;
 
-    @OneToOne
-
-    private PuntoEmissione PuntoEmissione;
+    @ManyToOne
+    private PuntoEmissione puntoEmissione;
 
     @OneToOne
     private Utente utente;
@@ -22,12 +20,12 @@ public class Biglietto extends Documento {
     public Biglietto() {
     }
 
-    public Biglietto(LocalDate dataEmissione, StatoBiglietto statoBiglietto, PuntoEmissione puntoEmissione, Utente utente) {
+    public Biglietto(LocalDate dataEmissione, StatoBiglietto statoBiglietto, Utente utente) {
         super(dataEmissione);
         this.statoBiglietto = statoBiglietto;
-        PuntoEmissione = puntoEmissione;
         this.utente = utente;
     }
+
 
     public StatoBiglietto getStatoBiglietto() {
         return statoBiglietto;
@@ -35,14 +33,6 @@ public class Biglietto extends Documento {
 
     public void setStatoBiglietto(StatoBiglietto statoBiglietto) {
         this.statoBiglietto = statoBiglietto;
-    }
-
-    public PuntoEmissione getPuntoEmissione() {
-        return PuntoEmissione;
-    }
-
-    public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
-        PuntoEmissione = puntoEmissione;
     }
 
     public Utente getUtente() {
