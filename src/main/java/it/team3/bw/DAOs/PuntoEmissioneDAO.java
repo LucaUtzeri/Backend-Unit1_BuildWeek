@@ -1,13 +1,10 @@
 package it.team3.bw.DAOs;
 
 
-import it.team3.bw.biglietto.classi.Biglietto;
 import it.team3.bw.biglietto.classi.PuntoEmissione;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
-import java.time.LocalDate;
 import java.util.List;
 
 
@@ -70,14 +67,6 @@ public class PuntoEmissioneDAO {
 //            return false;
 //        }
 //    }
-
-
-    public List<Biglietto> trovaBigliettiPerData(LocalDate dataInizio, LocalDate dataFine) {
-        TypedQuery<Biglietto> lista = entityManager.createQuery("SELECT b FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine", Biglietto.class);
-        lista.setParameter("dataInizio", dataInizio);
-        lista.setParameter("dataFine", dataFine);
-        return lista.getResultList();
-    }
 
 
 }

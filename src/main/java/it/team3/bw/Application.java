@@ -6,6 +6,12 @@ import it.team3.bw.biglietto.classi.*;
 import it.team3.bw.biglietto.enums.StatoBiglietto;
 import it.team3.bw.biglietto.enums.StatoDistributore;
 import it.team3.bw.biglietto.enums.TipologiaAbbonamento;
+import it.team3.bw.mezzi.DAOs.MezzoDAO;
+import it.team3.bw.mezzi.classi.Autobus;
+import it.team3.bw.mezzi.classi.Mezzo;
+import it.team3.bw.mezzi.classi.Tram;
+import it.team3.bw.tratta.DAOs.TrattaDAO;
+import it.team3.bw.tratta.Tratta;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +27,8 @@ public class Application {
     private static TesseraDAO td = new TesseraDAO(em);
     private static DocumentoDAO dd = new DocumentoDAO(em);
     private static VidimazioneDAO vd = new VidimazioneDAO(em);
+    private static MezzoDAO md = new MezzoDAO(em);
+    private static TrattaDAO trd = new TrattaDAO(em);
     //instanza di tutti i DAOs + Faker come static per renderli disponibili in tutta la Applicazione
 
     public static Faker faker = new Faker();
@@ -36,6 +44,12 @@ public class Application {
         Tessera tessera = new Tessera(LocalDate.now(), utente);
         Documento abbonamento = new Abbonamento(LocalDate.now(), tessera, TipologiaAbbonamento.MENSILE, LocalDate.of(2023, 5, 12), negoziante);
         Documento biglietto = new Biglietto(LocalDate.now(), StatoBiglietto.ATTIVO, distributore, utente2);
+        Tratta tratta = new Tratta(faker.address().firstName(), faker.address().firstName(), 10, 2, 15);
+        Tratta tratta2 = new Tratta(faker.address().firstName(), faker.address().firstName(), 22, 3, 20);
+        Mezzo autobus = new Autobus(50);
+        Mezzo tram = new Tram(150);
+        Manutenzione manutenzione = new Manutenzione(autobus, LocalDate.now().minusDays(60), LocalDate.now().minusDays(30));
+
 
         ped.savePE(distributore);
         ped.savePE(negoziante);
@@ -44,6 +58,13 @@ public class Application {
         td.saveTessera(tessera);
         dd.saveDocumento(abbonamento);
         dd.saveDocumento(biglietto);
+        trd.saveTratta(tratta);
+        trd.saveTratta(tratta2);
+        md.saveMezzo(autobus);
+        md.saveMezzo(tram);
+        md.saveManutenzione(manutenzione);
+
+        dd.trovaBigliettiPerData(LocalDate.now().minusDays(30), LocalDate.now());
 
         Scanner scanner = new Scanner(System.in);
 

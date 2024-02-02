@@ -11,7 +11,8 @@ public abstract class Documento {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idDocumento;
 
-
+    @ManyToOne
+    private PuntoEmissione puntoEmissione;
     private LocalDate dataEmissione;
 
     public Documento() {
